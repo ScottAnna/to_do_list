@@ -7,12 +7,12 @@
 
 <p>
   <strong>Tasks:</strong>
-  <ul>
+  <ul class="list-group">
     <% @list.tasks.each do |task| %>
       <li>
         <%= task.order_number %>.
         <%= task.name %>
-        <%= task.due.strftime("%b %e, %Y") %>
+        <%= task.due.strftime("%b %e, %Y")  if !task.due.nil? %>
       </li>
     <% end %>
   </ul>
