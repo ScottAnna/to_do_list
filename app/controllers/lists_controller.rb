@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in?
 
   # GET /lists
   # GET /lists.json
@@ -14,7 +15,7 @@ class ListsController < ApplicationController
 
   # GET /lists/new
   def new
-    @list = List.new
+    @list = List.new(user_id: session[:user_id])
   end
 
   # GET /lists/1/edit
@@ -58,6 +59,12 @@ class ListsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  private def logged_in?
+    unless User.find_by_id(session[:user_id])
+      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
     end
   end
 

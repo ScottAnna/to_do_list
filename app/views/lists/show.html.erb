@@ -6,8 +6,16 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @list.user_id %>
+  <strong>Tasks:</strong>
+  <ul>
+    <% @list.tasks.each do |task| %>
+      <li>
+        <%= task.order_number %>.
+        <%= task.name %>
+        <%= task.due %>
+      </li>
+    <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_list_path(@list) %> |
