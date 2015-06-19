@@ -16,10 +16,12 @@ class ListsController < ApplicationController
   # GET /lists/new
   def new
     @list = List.new(user_id: session[:user_id])
+    @list.tasks.build
   end
 
   # GET /lists/1/edit
   def edit
+    @list.tasks.build
   end
 
   # POST /lists
@@ -76,6 +78,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:name, :user_id)
+      params.require(:list).permit(:name, :user_id, tasks_attributes: [:id, :name, :due, :order_number])
     end
 end
