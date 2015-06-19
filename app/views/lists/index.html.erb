@@ -13,14 +13,16 @@
     <% @lists.each do |list| %>
       <tr>
         <td>
-          <h3><%= list.name %> </h3> <%= link_to 'View', list %> <%= link_to 'Edit', edit_list_path(list) %>
+          <h3><%= list.name %> </h3>
+           <%= link_to list do %><i class="glyphicon glyphicon-cloud"></i><% end %>
+           <%= link_to edit_list_path(list) do %><i class="glyphicon glyphicon-pencil"></i><% end %>
             <ul class="list-group">
               <% list.tasks.each do |task| %>
                 <li class="list-group-item list-group-item-info">
                   <%= task.order_number %>.
                   <%= task.name %>
                   <%= task.due.strftime("%b %e, %Y") if !task.due.nil? %>
-                  <button class="label label-info">Woo!</button>
+                  <button class="label label-info remove">Woo!</button>
                 </li>
               <% end %>
             </ul>

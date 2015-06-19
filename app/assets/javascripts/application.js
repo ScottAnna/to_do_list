@@ -20,3 +20,11 @@ $(function() {
 $( "#sortable" ).sortable();
 $( "#sortable" ).disableSelection();
 });
+
+function removeItem() {
+  $('.remove').on("click", function(){
+    $(event.target).closest(".list-group-item").hide();
+  });
+}
+
+$(removeItem);
