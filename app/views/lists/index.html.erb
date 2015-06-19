@@ -20,7 +20,7 @@
                 <li>
                   <%= task.order_number %>.
                   <%= task.name %>
-                  <%= task.due %>
+                  <%= task.due.strftime("%b %e, %Y") %>
                 </li>
               <% end %>
             </ul>
