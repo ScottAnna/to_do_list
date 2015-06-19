@@ -1,12 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Lists</h1>
+<h1>All Tasks</h1>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
-      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +13,18 @@
   <tbody>
     <% @lists.each do |list| %>
       <tr>
-        <td><%= list.name %></td>
-        <td><%= list.user_id %></td>
+        <td>
+          <%= list.name %>
+            <ul>
+              <% list.tasks.each do |task| %>
+                <li>
+                  <%= task.order_number %>.
+                  <%= task.name %>
+                  <%= task.due %>
+                </li>
+              <% end %>
+            </ul>
+        </td>
         <td><%= link_to 'Show', list %></td>
         <td><%= link_to 'Edit', edit_list_path(list) %></td>
         <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
