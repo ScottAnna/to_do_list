@@ -16,13 +16,13 @@
     <%= f.text_field :name %>
   </div>
 
+  <h2>Tasks</h2>
+
   <%= f.fields_for :tasks do |ff| %>
     <div class="field">
-      <%= ff.label :name %><br>
+      <%= ff.label :name %>
       <%= ff.text_field :name %>
-    </div>
-    <div class="field">
-      <%= ff.label :due %><br>
+      <%= ff.label :due %>
       <%= ff.date_field :due %>
     </div>
 
