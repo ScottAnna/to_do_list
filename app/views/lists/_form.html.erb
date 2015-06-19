@@ -15,7 +15,7 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-
+  <% counter = 0 %>
   <h2>Tasks</h2>
 
   <ul id="sortable">
@@ -28,14 +28,19 @@
           <%= ff.date_field :due %>
           <%= ff.label :_destroy %>
           <%= ff.check_box :_destroy %>
+          <%= ff.object.order_number %>
           <%= ff.hidden_field :order_number %>
         </li>
     </div>
+    <% counter += 1 %>
   <% end %>
-
 </ul>
+
+
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<div id="info"></div>

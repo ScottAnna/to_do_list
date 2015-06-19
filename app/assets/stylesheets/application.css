@@ -15,3 +15,8 @@
  *= require_self
  *= require "bootstrap"
  */
+
+
+li {
+  list-style-type: none;
+}
