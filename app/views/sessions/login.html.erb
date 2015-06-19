@@ -1,5 +1,4 @@
 <div class="login-container">
-  <div class="login-title">Login</div>
   <%= form_tag do %>
     <div class="login-email-container">
       <%= label_tag :email %>
@@ -11,4 +10,8 @@
     </div>
     <%= submit_tag "Login"%>
   <% end %>
+</div>
+
+<div class="btn btn-info">
+  <%= link_to "Sign Up", new_user_path %>
 </div>

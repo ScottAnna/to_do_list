@@ -78,6 +78,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:name, :user_id, tasks_attributes: [:id, :name, :due, :order_number])
+      params.require(:list).permit(:name, :user_id, tasks_attributes: [:id, :name, :due, :order_number, :_destroy])
     end
 end
