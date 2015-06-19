@@ -18,15 +18,19 @@
 
   <h2>Tasks</h2>
 
+  <ul id="sortable">
   <%= f.fields_for :tasks do |ff| %>
-    <div class="field">
-      <%= ff.label :name %>
-      <%= ff.text_field :name %>
-      <%= ff.label :due %>
-      <%= ff.date_field :due %>
+    <div "fields">
+        <li class="ui-state-default">
+          <%= ff.label :name %>
+          <%= ff.text_field :name %>
+          <%= ff.label :due %>
+          <%= ff.date_field :due %>
+        </li>
     </div>
-
   <% end %>
+
+</ul>
 
   <div class="actions">
     <%= f.submit %>
