@@ -23,12 +23,18 @@ $(function() {
       alert(order);
     }
   });
-}
+});
 
-function removeItem() {
+function hideDestroy(){
+  $('.destroy-container').hide();
+};
+
+function removeItem(){
   $('.remove').on("click", function(){
     $(event.target).closest(".list-group-item").hide();
+    $(event.target).closest(".destroy").prop('checked', true);
   });
-}
+};
 
 $(removeItem);
+$(hideDestroy);

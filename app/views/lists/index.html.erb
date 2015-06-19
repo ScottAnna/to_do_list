@@ -22,6 +22,9 @@
                   <%= task.order_number %>.
                   <%= task.name %>
                   <%= task.due.strftime("%b %e, %Y") if !task.due.nil? %>
+                  <%= form_for task, url: lists_path(list.id) do |f| %>
+                    <div class="destroy-container"><%= f.check_box :_destroy, class: "task-destroy" %></div>
+                  <% end %>
                   <button class="label label-info remove">Woo!</button>
                 </li>
               <% end %>
