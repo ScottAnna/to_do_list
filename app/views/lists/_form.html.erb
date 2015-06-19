@@ -25,9 +25,7 @@
       <%= ff.label :due %><br>
       <%= ff.date_field :due %>
     </div>
-    <div class="field">
-      <%= ff.hidden_field :order_number, value: (@list.tasks.order(:order_number).last.order_number + 1)%>
-    </div>
+
   <% end %>
 
   <div class="actions">

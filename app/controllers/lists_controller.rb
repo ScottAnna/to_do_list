@@ -16,12 +16,12 @@ class ListsController < ApplicationController
   # GET /lists/new
   def new
     @list = List.new(user_id: session[:user_id])
-    @list.tasks.build
+    @list.tasks.build(order_number: @list.next_order_number )
   end
 
   # GET /lists/1/edit
   def edit
-    @list.tasks.build
+    @list.tasks.build(order_number: @list.next_order_number )
   end
 
   # POST /lists
