@@ -17,6 +17,10 @@
 
 
 $(function() {
-$( "#sortable" ).sortable();
-$( "#sortable" ).disableSelection();
+  $("#sortable").sortable({
+    update : function() {
+      var order = $("#sortable fields li input").sortable('serialize', {attribute: "order_number"});
+      alert(order);
+    }
+  });
 });
