@@ -32,10 +32,15 @@ function hideDestroy(){
 function removeItem(){
   $('.remove').on("click", function(){
     $(event.target).closest(".list-group-item").hide();
-    var box = $(event.target).closest(".list-group-item").find(".task-destroy");
-    box.prop("checked", true);
-    box.closest('form').submit();
+    var box = $(event.target).closest(".list-group-item").find(".task-destroy").get(0);
+    //var boxj = $(event.target).closest(".list-group-item").find(".task-destroy");
+    console.log(box);
+    //box.prop("checked", true);
+    box.checked = true;
+    console.log(box);
+    $(event.target).closest('form').submit();
   });
+
 };
 
 $(removeItem);
