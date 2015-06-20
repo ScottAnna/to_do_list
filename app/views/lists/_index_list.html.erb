@@ -1,0 +1,16 @@
+<ul class="list-group">
+  <% list.tasks.each do |task| %>
+    <li class="list-group-item list-group-item-info">
+      <%= task.order_number %>.
+      <%= task.name %>
+      <%= task.due.strftime("%b %e, %Y") if !task.due.nil? %>
+      <button class="label label-info remove">Woo!</button>
+      <%= form_for list, url: "/lists/#{list.id}/completed",  remote: true do |l| %>
+      <%= l.fields_for task do |f| %>
+        <div class="destroy-container"><%= f.check_box :_destroy, class: "task-destroy" %></div>
+      <% end %>
+      <div class="destroy-container"><%= l.submit %></div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

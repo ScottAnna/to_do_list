@@ -32,7 +32,9 @@ function hideDestroy(){
 function removeItem(){
   $('.remove').on("click", function(){
     $(event.target).closest(".list-group-item").hide();
-    $(event.target).closest(".destroy").prop('checked', true);
+    var box = $(event.target).closest(".list-group-item").find(".task-destroy");
+    box.prop("checked", true);
+    box.closest('form').submit();
   });
 };
 

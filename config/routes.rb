@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get 'sessions/logout'
 
   resources :users
-  resources :lists
+  resources :lists do
+    member do
+      patch 'completed'
+    end
+  end
 
   root 'lists#index'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :edit, :update, :destroy, :completed]
   before_action :logged_in?
 
   # GET /lists
@@ -37,6 +37,14 @@ class ListsController < ApplicationController
         format.html { render :new }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def completed
+    if @list.update(list_params)
+      render '/lists/update'
+    else
+      render :edit
     end
   end
 
