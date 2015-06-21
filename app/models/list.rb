@@ -7,4 +7,5 @@ class List < ActiveRecord::Base
   def next_order_number
     self.tasks.count + 1
   end
+  
 end

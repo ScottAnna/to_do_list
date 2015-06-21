@@ -14,16 +14,23 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require_tree .
-
-
 $(function() {
   $("#sortable").sortable({
-    update : function() {
-      var order = $("#sortable fields li input").sortable('serialize', {attribute: "order_number"});
-      alert(order);
+    update: function(event, ui) {
+        $('.orderNum').each(function(i) {
+           $(this).val(i + 1);
+           $.ajax({
+                   type: 'PATCH',
+                   url: '/lists/1/update',
+                   dataType: 'json',
+                   data: { task: { order_number: order_number } }
+                 });
+        });
     }
   });
 });
+
+
 
 function hideDestroy(){
   $('.destroy-container').hide();
@@ -33,10 +40,7 @@ function removeItem(){
   $('.remove').on("click", function(){
     $(event.target).closest(".list-group-item").hide();
     var box = $(event.target).closest(".list-group-item").find(".task-destroy")
-    //var box = $(event.target).closest(".list-group-item").find(".task-destroy");
-    console.log(box);
     box.prop("checked", "true");
-    console.log(box);
     $(this).closest('form').submit();
   });
 

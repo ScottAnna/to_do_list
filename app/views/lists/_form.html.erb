@@ -29,7 +29,7 @@
           <%= ff.label :_destroy %>
           <%= ff.check_box :_destroy %>
           <%= ff.object.order_number %>
-          <%= ff.hidden_field :order_number %>
+          <%= ff.hidden_field :order_number, class: "orderNum" %>
         </li>
     </div>
     <% counter += 1 %>
