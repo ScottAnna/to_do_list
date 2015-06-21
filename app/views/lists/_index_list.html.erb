@@ -1,5 +1,5 @@
 <ul class="list-group">
-  <% list.tasks.each do |task| %>
+  <% list.tasks.order(:order_number).each do |task| %>
     <li class="list-group-item list-group-item-info">
       <%= task.order_number %>.
       <%= task.name %>
