@@ -14,7 +14,7 @@
         <%= task.order_number %>.
         <%= task.name %>
         <%= task.due.strftime("%b %e, %Y")  if !task.due.nil? %>
-        <button class="label label-info remove">Woo!</button>
+        <%= link_to 'Woo!', task_path(task), remote: true, method: :delete, class: 'delete-button' %>
       </li>
     <% end %>
   </ul>

@@ -46,5 +46,12 @@ function removeItem(){
 
 };
 
+function hideDelete() {
+  $('.delete-button').on("click", function() {
+    $(this).closest('li').fadeOut(500);
+  })
+}
+
+$(hideDelete)
 $(removeItem);
 $(hideDestroy);

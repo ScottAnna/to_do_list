@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tasks/destroy'
+
   get 'sessions/login'
   post 'sessions/login'
   get 'sessions/logout'
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
       patch 'completed'
     end
   end
+
+  resources :tasks
 
   root 'lists#index'
   # The priority is based upon order of creation: first created -> highest priority.

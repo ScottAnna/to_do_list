@@ -7,7 +7,7 @@
       <%= task.order_number %>.
       <%= task.name %>
       <%= task.due.strftime("%b %e, %Y") if !task.due.nil? %>
-      <button class="label label-info remove">Woo!</button>
+      <%= link_to 'Woo!', task_path(task), method: :delete, class: 'delete-button' %>
       <%= form_for list, url: "/lists/#{list.id}/completed",  remote: true do |l| %>
         <%= l.fields_for task do |f| %>
           <div class="destroy-container"><%= f.check_box :_destroy, class: "task-destroy" %></div>
