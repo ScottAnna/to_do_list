@@ -11,6 +11,7 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
+    redirect_to edit_list_path(@list)
   end
 
   # GET /lists/new
@@ -31,7 +32,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
+        format.html { redirect_to lists_path, notice: 'List was successfully created.' }
         format.json { render :show, status: :created, location: @list }
       else
         format.html { render :new }
@@ -84,4 +85,5 @@ class ListsController < ApplicationController
     def list_params
       params.require(:list).permit(:name, :user_id, tasks_attributes: [:id, :name, :due, :order_number, :_destroy])
     end
+    
 end

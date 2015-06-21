@@ -3,6 +3,7 @@ require 'test_helper'
 class ListsControllerTest < ActionController::TestCase
   setup do
     @list = lists(:one)
+    session[:user_id] = users(:one).id
   end
 
   test "should get index" do
@@ -21,12 +22,12 @@ class ListsControllerTest < ActionController::TestCase
       post :create, list: { name: @list.name, user_id: @list.user_id }
     end
 
-    assert_redirected_to list_path(assigns(:list))
+    assert_redirected_to lists_path
   end
 
   test "should show list" do
     get :show, id: @list
-    assert_response :success
+    assert_redirected_to edit_list_path(@list)
   end
 
   test "should get edit" do

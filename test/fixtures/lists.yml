@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  user_id: 1
+  user: :one
 
 two:
   name: MyString
-  user_id: 1
+  user: :one
