@@ -53,7 +53,7 @@ class ListsController < ApplicationController
   # PATCH/PUT /lists/1.json
   def update
       if @list.update(list_params)
-        redirect_to @list, notice: 'List was successfully updated.'
+        redirect_to lists_path, notice: 'List was successfully updated.'
       else
         render :edit
       end

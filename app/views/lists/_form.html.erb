@@ -21,14 +21,14 @@
   <%= f.fields_for :tasks do |ff| %>
     <div "fields">
         <li class="ui-state-default">
-          <%= ff.label :name %>
-          <%= ff.text_field :name %>
-          <%= ff.label :due %>
-          <%= ff.date_field :due %>
-          <%= ff.label :_destroy %>
-          <%= ff.check_box :_destroy %>
-          <%= ff.object.order_number %>
-          <%= ff.hidden_field :order_number %>
+          <span class="number"><%= ff.object.order_number %>. </span>
+          <span><%= ff.label :name %></span>
+          <span><%= ff.text_field :name %></span>
+          <span><%= ff.label :due %></span>
+          <span><%= ff.date_field :due %></span>
+          <span><%= ff.label :_destroy %></span>
+          <span><%= ff.check_box :_destroy %></span>
+          <span><%= ff.hidden_field :order_number, class: "orderNum" %></span>
         </li>
     </div>
   <% end %>
