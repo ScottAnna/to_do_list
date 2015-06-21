@@ -19,12 +19,7 @@ $(function() {
     update: function(event, ui) {
         $('.orderNum').each(function(i) {
            $(this).val(i + 1);
-           $.ajax({
-                   type: 'PATCH',
-                   url: '/lists/1/update',
-                   dataType: 'json',
-                   data: { task: { order_number: order_number } }
-                 });
+           $('.number')[i].textContent=(i + 1 + ".");
         });
     }
   });
