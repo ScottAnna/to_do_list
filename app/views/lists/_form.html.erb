@@ -17,13 +17,13 @@
   </div>
   <h2>Tasks</h2>
 
-  <ul id="sortable">
+  <ul class="list-group" id="sortable">
   <%= f.fields_for :tasks do |ff| %>
     <div "fields">
-        <li class="ui-state-default">
+        <li class="list-group-item list-group-item-info ui-state-default">
           <span class="number"><%= ff.object.order_number %>. </span>
           <span><%= ff.label :name %></span>
-          <span><%= ff.text_field :name %></span>
+          <span><%= ff.text_field :name %></span><br>
           <span><%= ff.label :due %></span>
           <span><%= ff.date_field :due %></span>
           <span><%= ff.label :_destroy %></span>

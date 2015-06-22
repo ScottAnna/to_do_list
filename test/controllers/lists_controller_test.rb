@@ -37,7 +37,7 @@ class ListsControllerTest < ActionController::TestCase
 
   test "should update list" do
     patch :update, id: @list, list: { name: @list.name, user_id: @list.user_id }
-    assert_redirected_to list_path(assigns(:list))
+    assert_redirected_to lists_path
   end
 
   test "should destroy list" do
