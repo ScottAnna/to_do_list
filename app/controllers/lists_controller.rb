@@ -5,7 +5,8 @@ class ListsController < ApplicationController
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.all
+    @lists = List.where(user_id: session[:user_id]).all
+    @list = Task.where(list_id: List.where(user_id: session[:user_id])).all
   end
 
   # GET /lists/1
@@ -85,5 +86,5 @@ class ListsController < ApplicationController
     def list_params
       params.require(:list).permit(:name, :user_id, tasks_attributes: [:id, :name, :due, :order_number, :_destroy])
     end
-    
+
 end
