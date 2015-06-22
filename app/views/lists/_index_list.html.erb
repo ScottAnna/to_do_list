@@ -1,8 +1,5 @@
 <ul class="list-group" id="sortable">
-  <% counter = 1 %>
   <% list.order(:order_number).each do |task| %>
-    <% task.update(order_number: counter )%>
-    <% counter += 1 %>
     <li class="list-group-item list-group-item-info ui-state-default">
       <span  class="number"><%= task.order_number %>. </span>
       <span><%= task.name %></span>

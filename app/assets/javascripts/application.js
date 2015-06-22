@@ -37,6 +37,11 @@ function removeItem(){
     var box = $(event.target).closest(".list-group-item").find(".task-destroy")
     box.prop("checked", "true");
     $(this).closest('form').submit();
+    $('.orderNum').each(function(i) {
+       $(this).val(i + 1);
+       $('.number')[i].textContent=(i + 1 + ".");
+    });
+
   });
 
 };
